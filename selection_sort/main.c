@@ -3,6 +3,11 @@
 
 #define ARRAY_SIZE 6
 
+/* Sort order
+ * if defined SORT_DESC: desc order
+ * if not defined SORT_DESC: acs order
+ */
+
 //#define SORT_DESC
 
 void selection_sort(int * arr) {
