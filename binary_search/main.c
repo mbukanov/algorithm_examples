@@ -24,6 +24,17 @@ int binary_search(int * arr, int value) {
 	return -1;
 }
 
+int binary_search_recursive(int *arr, int value, int start, int end) {
+	step_counter++;
+	if ( start > end ) return -1;
+	int q = (start + end) / 2;
+	if (arr[q] == value ) return q;
+	if (arr[q] > value ) 
+		return binary_search_recursive(arr, value, start, --q);
+	else
+		return binary_search_recursive(arr, value, ++q, end); 
+}
+
 int main() {
 	int search_value = 5;
 
@@ -34,6 +45,7 @@ int main() {
 	}
 
 	int index = binary_search(arr, search_value);
+//	int index = binary_search_recursive(arr, search_value, 0, ARRAY_SIZE);
 #ifdef STEP_COUNTER
 	printf("step counter = %d\n", step_counter);
 #endif
